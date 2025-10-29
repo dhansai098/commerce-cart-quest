@@ -3,6 +3,16 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { ShoppingCart } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
+// Import product images
+import headphonesImg from "@/assets/headphones.jpg";
+import smartwatchImg from "@/assets/smartwatch.jpg";
+import laptopStandImg from "@/assets/laptop-stand.jpg";
+import usbHubImg from "@/assets/usb-hub.jpg";
+import keyboardImg from "@/assets/keyboard.jpg";
+import mouseImg from "@/assets/mouse.jpg";
+import phoneCaseImg from "@/assets/phone-case.jpg";
+import powerBankImg from "@/assets/power-bank.jpg";
+
 interface Product {
   id: string;
   name: string;
@@ -17,11 +27,35 @@ interface ProductCardProps {
   isAdding?: boolean;
 }
 
+// Map product names to images
+const productImages: Record<string, string> = {
+  "Wireless Headphones": headphonesImg,
+  "Smart Watch": smartwatchImg,
+  "Laptop Stand": laptopStandImg,
+  "USB-C Hub": usbHubImg,
+  "Mechanical Keyboard": keyboardImg,
+  "Wireless Mouse": mouseImg,
+  "Phone Case": phoneCaseImg,
+  "Portable Charger": powerBankImg,
+};
+
 export const ProductCard = ({ product, onAddToCart, isAdding }: ProductCardProps) => {
+  const productImage = productImages[product.name];
+
   return (
     <Card className="overflow-hidden transition-all hover:shadow-lg">
-      <div className="aspect-square bg-secondary/20 flex items-center justify-center">
-        <ShoppingCart className="w-16 h-16 text-muted-foreground" />
+      <div className="aspect-square bg-secondary/20 overflow-hidden">
+        {productImage ? (
+          <img 
+            src={productImage} 
+            alt={product.name}
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center">
+            <ShoppingCart className="w-16 h-16 text-muted-foreground" />
+          </div>
+        )}
       </div>
       <CardHeader>
         <div className="flex items-start justify-between gap-2">
