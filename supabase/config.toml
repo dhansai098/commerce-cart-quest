@@ -1,0 +1,10 @@
+project_id = "fzgkqdcpfcvkatjhklxp"
+
+[functions.products]
+verify_jwt = false
+
+[functions.cart]
+verify_jwt = false
+
+[functions.checkout]
+verify_jwt = false
