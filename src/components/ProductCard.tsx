@@ -33,8 +33,8 @@ export const ProductCard = ({ product, onAddToCart, isAdding }: ProductCardProps
         <CardDescription className="line-clamp-2">{product.description}</CardDescription>
       </CardHeader>
       <CardFooter className="flex items-center justify-between">
-        <span className="text-2xl font-bold text-primary">${product.price.toFixed(2)}</span>
-        <Button 
+        <span className="text-2xl font-bold text-primary">₹{(product.price * 83).toFixed(2)}</span>
+        <Button
           onClick={() => onAddToCart(product.id)}
           disabled={product.stock === 0 || isAdding}
           size="sm"

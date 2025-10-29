@@ -76,7 +76,7 @@ export const CheckoutForm = ({ onSubmit, isProcessing, total }: CheckoutFormProp
           </div>
           <div className="flex items-center justify-between p-4 bg-secondary/20 rounded-lg">
             <span className="text-sm font-medium">Order Total:</span>
-            <span className="text-2xl font-bold text-primary">${total}</span>
+            <span className="text-2xl font-bold text-primary">₹{(parseFloat(total) * 83).toFixed(2)}</span>
           </div>
         </CardContent>
         <CardFooter>

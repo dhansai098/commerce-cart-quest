@@ -49,7 +49,7 @@ export const Cart = ({ items, total, onRemoveItem, onUpdateQuantity, onCheckout,
           <div key={item.id} className="flex items-center gap-4 pb-4 border-b last:border-0">
             <div className="flex-1">
               <h4 className="font-medium">{item.products.name}</h4>
-              <p className="text-sm text-muted-foreground">${item.products.price.toFixed(2)} each</p>
+              <p className="text-sm text-muted-foreground">₹{(item.products.price * 83).toFixed(2)} each</p>
             </div>
             <div className="flex items-center gap-2">
               <Button
@@ -71,7 +71,7 @@ export const Cart = ({ items, total, onRemoveItem, onUpdateQuantity, onCheckout,
               </Button>
             </div>
             <div className="text-right min-w-[80px]">
-              <p className="font-semibold">${(item.products.price * item.quantity).toFixed(2)}</p>
+              <p className="font-semibold">₹{(item.products.price * item.quantity * 83).toFixed(2)}</p>
             </div>
             <Button
               variant="ghost"
@@ -88,7 +88,7 @@ export const Cart = ({ items, total, onRemoveItem, onUpdateQuantity, onCheckout,
       <CardFooter className="flex flex-col gap-4 pt-6">
         <div className="flex items-center justify-between w-full">
           <span className="text-lg font-medium">Total:</span>
-          <span className="text-3xl font-bold text-primary">${total}</span>
+          <span className="text-3xl font-bold text-primary">₹{(parseFloat(total) * 83).toFixed(2)}</span>
         </div>
         <Button 
           className="w-full" 

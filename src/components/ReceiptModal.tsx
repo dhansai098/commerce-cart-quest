@@ -64,14 +64,14 @@ export const ReceiptModal = ({ receipt, open, onClose }: ReceiptModalProps) => {
                 <span>
                   {item.quantity}x {item.products.name}
                 </span>
-                <span>${(item.products.price * item.quantity).toFixed(2)}</span>
+                <span>₹{(item.products.price * item.quantity * 83).toFixed(2)}</span>
               </div>
             ))}
           </div>
           <Separator />
           <div className="flex justify-between items-center pt-2">
             <span className="text-lg font-semibold">Total:</span>
-            <span className="text-2xl font-bold text-primary">${receipt.total}</span>
+            <span className="text-2xl font-bold text-primary">₹{(parseFloat(receipt.total) * 83).toFixed(2)}</span>
           </div>
         </div>
         <Button onClick={onClose} className="w-full" size="lg">
